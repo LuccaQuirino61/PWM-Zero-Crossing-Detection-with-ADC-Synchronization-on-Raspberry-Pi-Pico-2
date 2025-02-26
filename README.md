@@ -56,8 +56,6 @@ sync_pin.irq(trigger=Pin.IRQ_FALLING, handler=pwm_zero_detect)
 
 # How It Works
 
----
-
 ## 1. **PWM Generation:**
 A 1 kHz PWM signal is created on GPIO 21, with 1kHz frequency and 50% duty cycle.
 ```python
@@ -66,8 +64,6 @@ pwm_pin = PWM(Pin(21))  # Set PWM output on pin 21
 pwm_pin.freq(1000)  # Set carrier frequency to 1 kHz
 pwm_pin.duty_u16(32767)  # 50% duty cycle
 ```
-
----
 
 ## 2. **Settings:**
 All the other pins are created and configured.
@@ -82,8 +78,6 @@ sync_pin = Pin(12, Pin.IN)
 indicator = Pin(4, Pin.OUT)
 ```
 
----
-
 ## 3. **Interruption:**
 The following line configures an **interrupt request (IRQ)** on a GPIO pin using MicroPython:
 ```python
@@ -94,13 +88,9 @@ sync_pin.irq(trigger=Pin.IRQ_FALLING, handler=pwm_zero_detect)
 
 This means that **whenever the PWM resets to zero, the interrupt automatically triggers the ADC reading function**.
 
----
-
 ### What is `Pin.IRQ_FALLING`?
 `Pin.IRQ_FALLING` is a **constant** from the **`machine`** library in **MicroPython**. It is used to configure **interrupts on GPIO pins**.
 In the **Raspberry Pi Pico 2 (RP2350) context**, this constant indicates that the **interrupt (IRQ) will be triggered when the pin signal transitions from HIGH (1) to LOW (0)**—meaning, on the **falling edge**.
-
----
 
 ### Other IRQ Modes
 MicroPython provides other constants to configure **GPIO interrupts**:
@@ -110,7 +100,6 @@ MicroPython provides other constants to configure **GPIO interrupts**:
 
 This setup ensures that the **ADC reading is executed precisely when the PWM reaches zero**, allowing accurate synchronization. 🚀
 
----
 
 ## 4. **pwm_zero_detect() Function:**
 
@@ -149,8 +138,6 @@ def pwm_zero_detect(pin):
 
 4. **Interrupt Deactivation:**
    - When the maximum number of interrupts is reached, the interrupt is disabled to prevent additional executions.
-
----
 
 # Results
 
