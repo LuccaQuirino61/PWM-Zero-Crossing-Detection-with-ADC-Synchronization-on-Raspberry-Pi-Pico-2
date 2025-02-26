@@ -158,7 +158,7 @@ def pwm_zero_detect(pin):
 
 The following image shows the captured PWM signal using a Tektronix TBS 1102B oscilloscope:
 
-![Oscilloscope PWM Signal](images/Oscilloscope.jpg)
+![Oscilloscope PWM Signal](Oscilloscope.jpg)
 
 
 
