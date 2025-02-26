@@ -154,6 +154,13 @@ def pwm_zero_detect(pin):
 
 # Results
 
+### Oscilloscope Waveform
+
+The following image shows the captured PWM signal using a Tektronix TBS 1102B oscilloscope:
+
+![Oscilloscope PWM Signal](images/Oscilloscope.jpg)
+
+
 
 
 
